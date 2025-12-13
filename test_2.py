@@ -1,6 +1,6 @@
 from core.memory import Memory
 
-mem = Memory(max_length=3)
+mem = Memory(max_short=3)
 
 #mem.add("bonjour")
 #mem.add("quoi qu'il arriver?", msg_type="question")
@@ -18,7 +18,7 @@ def print_mem(mem):
         print(f"{i}. [{e['type']}] {e['text']} ({e['timestamp']})")
     print("----------------------\n")
     
-mem = Memory(max_length=None, save_file="memory.json")
+mem = Memory(max_short=None, save_file="memory.json")
 
 mem.clear()
 

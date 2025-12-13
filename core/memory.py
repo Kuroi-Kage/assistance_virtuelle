@@ -3,9 +3,11 @@ from datetime import datetime
 from typing import List, Dict, Optional
 
 class Memory:
-    def __init__(self, max_length: Optional[int] = None, save_file: str ="memory.json"):
+    def __init__(self, max_short: Optional[int] = 5, save_file: str ="memory.json"):
         self.data: List[Dict] = []
-        self.max_length = max_length
+        self.short_memory: List[Dict] = [] 
+        self.long_memory: List[Dict] = []
+        self.max_short = max_short
         self.save_file = save_file
      
     def _now_iso(self) -> str:
@@ -22,8 +24,8 @@ class Memory:
             return False 
         
         # vérifier doublon
-        if text in [entry["text"] for entry in self.data]:
-            return False
+       # if text in [entry["text"] for entry in self.data]:
+           # return False
         
         entry = {
             "text": text,
@@ -33,24 +35,33 @@ class Memory:
             }
         self.data.append(entry)
         
+        self.long_memory.append(entry)
+        
+        # Ajouter dans mémoire courte
+        self.short_memory.append(entry)
+        if len(self.short_memory) > self.max_short:
+            self.short_memory.pop(0)
+        
         # Limite de mémoire
-        if self.max_length is not None:
-            while len(self.data) > self.max_length:
-                self.data.pop(0)
-        return True
+        #if self.max_length is not None:
+          # while len(self.data) > self.max_length:
+            #   self.data.pop(0)
+        #return True
     
     # Obtenir tout
     def get_all(self) -> List[Dict]:
         return self.data
     
     # Obtenir le dernier message   
-    def get_last(self):
+    def get_last(self, n=1) -> List[Dict]:
         # Retourn le dernier élément ou None si la mémoire est vide
-        return self.data[-1] if self.data else FileNotFoundError
+        if not self.data:
+            return []
+        return self.data[-n:] 
     
-    def last(self) -> Optional[Dict]:
+    def last(self, n=1) -> Optional[Dict]:
         # Retourne la derniere entree ou None.
-        return self.data[-1] if self.data else None
+        return self.data[-n] if self.data else None
     
     def get_last_n(self, n:int) -> List[Dict]:
         # Retourne les dernieur entrées
@@ -92,6 +103,7 @@ class Memory:
         
     # utilitaire pour debug / affichage
     def __repr__(self):
-        return f" <Memory len={len(self.data)} max_length={self.max_length} file='{self.save_file}'>"
+        return f" <Memory len={len(self.data)} max_short={self.max_short} file='{self.save_file}'>"
+
 
         
