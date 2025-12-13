@@ -14,7 +14,13 @@ brain = Reasonning(mem)
 #print('Resultat :', resultat)
 #print('Memoire :', mem.data)
 print(brain.think("Bonjour"))
+<<<<<<< HEAD
 print(brain.think("Peux-tu m'aider?"))
 print(brain.think("Comment ça va?"))
 print(brain.think("Comment ça va?"))
+=======
+print(brain.think("Comment ça va?"))
+print(brain.think("Comment ça va?"))
+print(brain.think("Peux-tu m'aider?"))
+>>>>>>> feature/connexion
 print("Memoire:", mem.data)
