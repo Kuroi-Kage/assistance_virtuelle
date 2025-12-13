@@ -1,8 +1,11 @@
 __pycache__/
 *.pyc
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
 test_1.py
 
 
@@ -16,5 +19,8 @@ fonction.txt
 
 
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
