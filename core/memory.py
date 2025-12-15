@@ -9,6 +9,7 @@ class Memory:
         self.long_memory: List[Dict] = []
         self.max_short = max_short
         self.save_file = save_file
+        self.load_from_file()
      
     def _now_iso(self) -> str:
          return datetime.now().isoformat()   
@@ -22,10 +23,6 @@ class Memory:
         text = text.strip() # retire espace avant:apres
         if not text:
             return False 
-        
-        # vérifier doublon
-       # if text in [entry["text"] for entry in self.data]:
-           # return False
         
         entry = {
             "text": text,
@@ -41,6 +38,9 @@ class Memory:
         self.short_memory.append(entry)
         if len(self.short_memory) > self.max_short:
             self.short_memory.pop(0)
+            
+        self.save_to_file()
+        return True
         
         # Limite de mémoire
         #if self.max_length is not None:
@@ -72,6 +72,9 @@ class Memory:
     def clear(self):
         #vide la memoire en memoire
         self.data = []
+        self.short_memory = []
+        self.long_memory = []
+        self.save_to_file()
     
     # Sauvegarder 
     def save_to_file(self):
@@ -94,13 +97,22 @@ class Memory:
         try:
             with open(self.save_file, "r", encoding="utf-8") as f:
                 self.data = json.load(f)
+            
+            self.long_memory = self.data.copy()
+            self.short_memory = self.data[-self.max_short:]
+            
         except FileNotFoundError:
             self.data = []
+            self.short_memory = []
+            self.long_memory = []
+            
         except json.JSONDecodeError:
-            # fchier corropu -> on garde mémoire vide mais signale
-            self;data = []
+            # fichier corropu -> on garde mémoire vide mais signale
+            self.data = []
+            self.short_memory = []
+            self.long_memory = []
             raise RuntimeError("Fichier memoire corrompu(JSON invalide).")
-        
+         
     # utilitaire pour debug / affichage
     def __repr__(self):
         return f" <Memory len={len(self.data)} max_short={self.max_short} file='{self.save_file}'>"
