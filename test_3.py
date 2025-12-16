@@ -1,17 +1,24 @@
-from core.precessor import Precessor
+from core.memory import Memory
+from core.reasonning import Reasonning
 
-proc = Precessor()
+mem = Memory()
+brain = Reasonning(mem)
 
 
-tests = [
-    "Bonjour",
-    "Comment ça va?",
-    "ouvre la porte",
-    "Montre-moi les fichiers",
-    "Quoi de neuf?",
-    "Simple message"
-]
+#tests = [
+ #   "Bonjour",
+   # "Comment ça va?",
+  #  "ouvre la porte",
+   # "Montre-moi les fichiers",
+  #  "Quoi de neuf?",
+   # "Simple message"
+#]
+def send(msg):
+  rep = brain.think(msg)
+  #print(f"Toi : {msg}")
+  print(f"IA : {rep}")
+  print("Mémoire: ", mem.data)
+  
+msg = input("Toi : ")
+send(msg)
 
-for t in tests:
-    result = proc.detect(t)
-    print(f"Message: '{t}' => Type: {result}")

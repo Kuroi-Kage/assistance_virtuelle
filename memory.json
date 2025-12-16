@@ -8,5 +8,90 @@
         "text": "Comment ça va",
         "type": "question",
         "timestamp": "2025-12-13T12:50:39.516196"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:00:58.865385"
+    },
+    {
+        "text": "hey",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:01:19.002307"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:01:43.986801"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:07:08.085158"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:11:47.862594"
+    },
+    {
+        "text": "Salut",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:12:18.462056"
+    },
+    {
+        "text": "Faire quelque chose",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:12:52.696139"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:53:19.040025"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T15:53:49.721472"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T17:00:04.320413"
+    },
+    {
+        "text": "comment ça va?",
+        "type": "question",
+        "timestamp": "2025-12-15T17:00:34.615784"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T17:18:49.287111"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T17:19:27.782917"
+    },
+    {
+        "text": "sALUT",
+        "type": "normal",
+        "timestamp": "2025-12-15T17:48:07.546451"
+    },
+    {
+        "text": "Bonjour",
+        "type": "normal",
+        "timestamp": "2025-12-15T17:48:28.914481"
+    },
+    {
+        "text": "BONJOUR",
+        "type": "greeting",
+        "timestamp": "2025-12-15T17:48:53.986249"
+    },
+    {
+        "text": "Bonjour",
+        "type": "greeting",
+        "timestamp": "2025-12-15T17:49:31.986925"
     }
 ]
