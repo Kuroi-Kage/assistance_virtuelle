@@ -1,26 +1,26 @@
-from core.memory import Memory
-from core.reasonneing import Reasonning
+from config import Config
 
+conf = Config()
 
-mem = Memory()
-#mem.add('hello')
-#print(mem.data)
+def main():
+    
+    print(f"Nom: {conf.IDENTITE['nom']}")
+    print(f"Version: {conf.IDENTITE['version']}")
+    
+    
+    while True:
+        # Lire l'entrée utilisateur
+        user_input = input("Vous: ")
+        
+        # Condition de sortie
+        if user_input.lower() == 'stop':
+            print("Arrêt de l'IA. À bientôt")
+            break
+        
+        # Réponse 
+        print(f"IA: J'ai reçu: '{user_input}'")
+        print (f" (En attente)")
+    
 
-brain = Reasonning(mem)
-
-#resultat = brain.think("Bonjour")
-
-#print(brain.think("test"))
-#print('Resultat :', resultat)
-#print('Memoire :', mem.data)
-print(brain.think("Bonjour"))
-<<<<<<< HEAD
-print(brain.think("Peux-tu m'aider?"))
-print(brain.think("Comment ça va?"))
-print(brain.think("Comment ça va?"))
-=======
-print(brain.think("Comment ça va?"))
-print(brain.think("Comment ça va?"))
-print(brain.think("Peux-tu m'aider?"))
->>>>>>> feature/connexion
-print("Memoire:", mem.data)
+if __name__ == "__main__":
+    main()
