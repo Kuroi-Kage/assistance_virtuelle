@@ -93,5 +93,180 @@
         "text": "Bonjour",
         "type": "greeting",
         "timestamp": "2025-12-15T17:49:31.986925"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:50:41.724341"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "nouveau",
+        "timestamp": "2025-12-16T20:50:41.725307"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:50:41.725934"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "nouveau",
+        "timestamp": "2025-12-16T20:50:41.726548"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:50:41.727498"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:51:46.187351"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:51:46.188435"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:51:46.191530"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:51:46.194091"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:51:46.196564"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:52:32.716517"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:52:32.718197"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:52:32.770726"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:52:32.772206"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-16T20:52:32.773718"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:23:08.572016"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:23:08.573744"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:23:08.574765"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:23:08.575582"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:23:08.577680"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:24:22.740181"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:24:22.759497"
+    },
+    {
+        "text": "Bonjour",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:24:22.769581"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:24:22.776934"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "repetition",
+        "timestamp": "2025-12-17T12:24:22.784963"
+    },
+    {
+        "text": "Salut",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:28:25.260289"
+    },
+    {
+        "text": "est ce que ça va?",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:28:25.277122"
+    },
+    {
+        "text": "rebonjour",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:28:25.284035"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:28:25.301644"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "nouveau",
+        "timestamp": "2025-12-17T12:28:25.311812"
+    },
+    {
+        "text": "Salut",
+        "type": "nouveau",
+        "timestamp": "2025-12-20T16:25:22.636950"
+    },
+    {
+        "text": "est ce que ça va?",
+        "type": "nouveau",
+        "timestamp": "2025-12-20T16:25:22.638043"
+    },
+    {
+        "text": "rebonjour",
+        "type": "nouveau",
+        "timestamp": "2025-12-20T16:25:22.639401"
+    },
+    {
+        "text": "Ouvre la porte",
+        "type": "nouveau",
+        "timestamp": "2025-12-20T16:25:22.640485"
+    },
+    {
+        "text": "Comment ça va?",
+        "type": "nouveau",
+        "timestamp": "2025-12-20T16:25:22.641426"
     }
 ]

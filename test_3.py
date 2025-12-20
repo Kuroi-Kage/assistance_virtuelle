@@ -1,24 +1,32 @@
 from core.memory import Memory
-from core.reasonning import Reasonning
 
-mem = Memory()
-brain = Reasonning(mem)
-
-
-#tests = [
- #   "Bonjour",
-   # "Comment ça va?",
-  #  "ouvre la porte",
-   # "Montre-moi les fichiers",
-  #  "Quoi de neuf?",
-   # "Simple message"
-#]
-def send(msg):
-  rep = brain.think(msg)
-  #print(f"Toi : {msg}")
-  print(f"IA : {rep}")
-  print("Mémoire: ", mem.data)
+class DummyAgent:
+  def score(self, text, memory_texts, n_last=3):
+    recent = memory_texts[-n_last:]
+    if text in recent:
+      return {"intent": "repetition", "score": 0.9}
+    else:
+      return {"intent": "nouveau", "score": 0.3}
+    
   
-msg = input("Toi : ")
-send(msg)
+from core.reasonning import Reasonning
+  
+mem = Memory()
+agent = DummyAgent()
+brain = Reasonning(mem, agent)
 
+messages = [
+  "Salut",
+  "est ce que ça va?",
+  "rebonjour",
+  "Ouvre la porte",
+  "Comment ça va?"
+]
+
+for msg in messages:
+  print(f"Toi : {msg}")
+  rep = brain.think(msg)
+  print(f"IA : {rep}")
+  #print(f"Mémoire actuelle : {mem.get_all()}")
+  
+  

@@ -1,9 +1,13 @@
 from core.memory import Memory
 from core.reasonning import Reasonning
+from core.agents import AgentIntent
+from core.processor import Precessor
 
 
 mem = Memory()
-brain = Reasonning(mem)
+agent = AgentIntent()
+processor = Precessor()
+brain = Reasonning(mem, agent)
 
 #while True:
   #  msg = input("Toi : ")
@@ -22,7 +26,6 @@ def send(msg):
   print(f"Toi : {msg}")
   print(f"IA : {rep}")
   #print("Mémoire: ", mem.data)
-  print("*-*"* 40)
   
 msg = input("Toi : ")
 send(msg)
