@@ -1,4 +1,5 @@
 from config import Config
+from datetime import datetime
 
 conf = Config()
 
@@ -32,18 +33,17 @@ def aff_history(history):
         print("l'historique est vide")
         return
     
-    for i, (role, message) in enumerate(history, 1):
+    for i, (role, message, heure) in enumerate(history, 1):
         if role == "utilisateur":
-            print(f"{i}. Vous: {message}")
+            print(f"{i}. [{heure}] Vous: {message}")
         else:
-            print(f"{i}. IA: {message}")
+            print(f"{i}. [{heure}] IA: {message}")
     
     print()
     
 def _clean_history(history):
     history.clear()
-    print("Historique effacé")
-        
+    print("Historique effacé")           
 
 def main():
     
@@ -53,7 +53,7 @@ def main():
     print(f"Configuration chargée: {conf.IDENTITE['nom']}")
     while True:
         # Lire l'entrée utilisateur
-        user_input = input("Vous: ").strip()
+        user_input = input("Moi: ").strip()
         
         # Condition de sortie
         if user_input.lower() == 'stop':
@@ -81,8 +81,9 @@ def main():
             reponse= f"'{user_input}' (Je vais apprendre à mieux répondre bientôt!)"
             
             # Enregistrer dans l'historique
-            history.append(("utilisateur", user_input))
-            history.append(("IA", reponse))
+            current_time = datetime.now().strftime("%H:%M:%S")
+            history.append(("utilisateur", user_input, current_time))
+            history.append(("IA", reponse, current_time))
             
             
             # Afficher la réponse
