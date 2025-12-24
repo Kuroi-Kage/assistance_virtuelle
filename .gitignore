@@ -24,3 +24,6 @@ fonction.txt
 
 =======
 >>>>>>> develop
+venv
+__pycache__
+*.pyc
