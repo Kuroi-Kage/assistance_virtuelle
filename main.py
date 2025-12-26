@@ -1,7 +1,15 @@
 from config import Config
 from datetime import datetime
+import json
+import os
+from core.agents import AgentIntent
+
+
+
 
 conf = Config()
+agent = AgentIntent()
+History_file = "save_memory.json"
 
 def aff_aide():
     """NOTRE PREMIERE FONCTION UTILE"""
@@ -43,18 +51,51 @@ def aff_history(history):
     
 def _clean_history(history):
     history.clear()
-    print("Historique effacé")           
+    # Sauvegarder l'historique vide
+    save_history(history)
+    print("Historique effacé")   
+    print()
+            
+def save_history(history):
+    """Sauvegarde l'historique dans un fichier JSON
 
+    Args:
+        history (_type_): _description_
+    """
+    try:
+        with open(History_file, 'w', encoding='utf-8') as f:
+            json.dump(history, f, ensure_ascii=False, indent=2)
+        print(f"Historique sauvegardé dans {History_file}")
+    except Exception as e:
+        print(f"Erreur lors de la sauvegarde: {e}")
+    
+def _load_history():
+    """Charge l'historique depuis un fichier JSON"""
+    if not os.path.exists(History_file):
+        print(f"Aucun historique trouvé. Création d'un nouveau.")
+        return []
+    
+    try:
+        with open(History_file, 'r', encoding='utf-8') as f:
+            history = json.load(f)
+        print(f"Historique chargé depuis {History_file}")
+        return history
+    except Exception as e:
+        print(f"Erreur lors du chargement: {e}")
+        return []
 def main():
     
     # Initialisation de l'historique
-    history = []
+    history = _load_history()
+    #agent = agent(Config)
     
     print(f"Configuration chargée: {conf.IDENTITE['nom']}")
+    print(f"Messages dans l'historique: {len(history)}")
     while True:
         # Lire l'entrée utilisateur
         user_input = input("Moi: ").strip()
-        
+        #regles = AgentInssstent.apply_rules(user_input)
+        #response = agent.generate_response(user_input, regles)
         # Condition de sortie
         if user_input.lower() == 'stop':
             print("Arrêt . Merci d'avoir utilisé l'IA!")
@@ -78,16 +119,20 @@ def main():
             
         else:
             # Réponse
-            reponse= f"'{user_input}' (Je vais apprendre à mieux répondre bientôt!)"
+            #response= f"'{user_input}' (Je vais apprendre à mieux répondre bientôt!)"
+            regle = agent.apply_rules(user_input)
+            response = agent.generate_response(user_input, regle)
             
             # Enregistrer dans l'historique
             current_time = datetime.now().strftime("%H:%M:%S")
             history.append(("utilisateur", user_input, current_time))
-            history.append(("IA", reponse, current_time))
+            history.append(("IA", response, current_time))
+            
+            save_history(history)
             
             
             # Afficher la réponse
-            print(f"IA: {reponse}")
+            print(f"IA: {response}")
 
 if __name__ == "__main__":
     main()

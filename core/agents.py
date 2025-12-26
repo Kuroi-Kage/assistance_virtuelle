@@ -1,34 +1,45 @@
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.metrics.pairwise import cosine_similarity
+from config import Config
+
+conf = Config()
 
 class AgentIntent:
     def __init__(self):
-        self.vectorizer = TfidfTransformer()
+        self.regles = conf.REGLE_COMPORTEMENT
+        self.memoire = []
         
-    def score(self, text, memory_texts):
-        """text: message utilisateur
+    def _check_condition(self, regle, user_message):
+        """Vérifie si la condition d'une regle est satisfaite"""
+        condition = regle.get("condition", "")
         
-        memory_texts: liste de textes depuis la memoire
-        """
-        # Cas mémoire vide
-        if not memory_texts:
-            return{
-                "intent": "unknown",
-                "score": 0.0,
-                "reason": "memoire vide"
-            }
-            
-        corpus = memory_texts + [text]
-            
-        vectors = self.vectorizer.fit_transform(corpus)
-        similarities = cosine_similarity(vectors[-1], vectors[:-1])
-            
-        max_score = similarities.max()
-            
-        intent = "question" if "?" in text else "statement"
-            
-        return {
-            "intent": intent,
-            "score": float(max_score),
-            "reason":"similarité sémantique TF-IDF"
-         }
+        #SI CONDITON = "QUESTION_FACTUELLE"
+        #On vérifie si "question " ou "factuelle" est dans e message
+        
+        mots_condition = condition.split('_')
+        for mot in mots_condition:
+            if mot.lower() in user_message.lower():
+                return True
+            return False
+        
+    def __apply_action(self, regle, message):
+        action = regle.get("action", "")
+        details = regle.get("details", "")
+        
+        return f"Régle '{regle['id']}' : {action}. {details}"
+        
+                
+    def apply_rules(self, user_input):
+        """Cherche quelles règles s'appliquent"""
+        applicable_rules = []
+        for regle in self.regles:
+            if self._check_condition(regle, user_input):
+                applicable_rules.append(regle)
+        return applicable_rules
+    
+    def generate_response(self, message, applicable_rules):
+        """Genere une réponse basée sur les regles"""
+        if applicable_rules:
+            # Appliquer la règle la plus prioritaire
+            return self._apply_action(applicable_rules[0], message)
+        else:
+            return "Je réflechis à votre demande..."
+        

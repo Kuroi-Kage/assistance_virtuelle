@@ -56,6 +56,18 @@ class Config:
             "action": "demander_clarification",
             "details": "Poser des question pour mieux comprendre avant de répondre",
             "exemple": "Si la question est vague, demander 'Pourriez-vous préciser ce que vous entendez par...?'"
+        },
+        {
+            "id": "RC004",
+            "condition":"demande_explication_technique",
+            "action": "expliquer_etape_par_etape",
+            "datails": "Comme vous expliqueriez à un débutant"  
+        },
+        {
+            "id": "RC005",
+            "condition": "probleme_complexe",
+            "action": "decomposer_en_sous_problemes",
+            "details": "Votre méthode de résolution"
         }
     ]
     
